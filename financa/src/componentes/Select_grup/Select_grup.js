@@ -2,7 +2,7 @@ import React from 'react';
 
 const select_grup = () =>(
   <div>
-    aaaaaaccc
+    Teste
   </div>
 );
   
