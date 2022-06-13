@@ -29,7 +29,14 @@ async function main() {
   return 'done.';
 }
 
-main()
-  .then(console.log)
-  .catch(console.error)
-  .finally(() => client.close());
+const create_user = async ({objeto}) =>{
+  await client.connect();
+  console.log('Connected successfully to server');
+  const db = client.db(dbName);
+  const collection = db.collection('user');
+
+  await collection.insertOne(objeto);
+  // the following code examples can be pasted here...
+
+  return 'done.';
+}
