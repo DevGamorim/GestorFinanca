@@ -1,13 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 
-import Select_grup from './componentes/Select_grup/Select_grup';
 import Footer from "./componentes/Footer/Footer";
+import Login from './componentes/Login/Login';
 
 function App() {
   return (
   <div className="App">
-    <Select_grup />
+    <Login></Login>
     <Footer />
   </div>    
   );
