@@ -1,0 +1,10 @@
+.pagina {
+  height: 100vh;
+  padding: 5rem;
+}
+
+@media screen and (max-width: 560px) {
+  .pagina {
+    padding: 1rem;
+  }
+}
