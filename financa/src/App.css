@@ -1,17 +1,28 @@
-/* Footer*/
+/* body */
 
 body {
   margin: 0;
   padding: 0;
   height:1000px;
+  background: url('../public/fundo_cinza.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Libre Baskerville';font-size: 22px;
  }
 
+/* Footer*/
+
  .footer {
-  background-color: #32D9BA;
+  background-color: #736663;
   border-top:2px solid #BABFBE;
   position: fixed;
   width: 100%;
   bottom: 0;
-  color: #736663;
+  color: #BABFBE;
   font-size: 15px;
  }
+
+
+ 
