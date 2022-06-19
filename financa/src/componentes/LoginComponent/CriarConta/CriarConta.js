@@ -9,9 +9,7 @@ function CriarConta(props) {
   }
 
   return <>
-    <Botao className='botao-voltar' onClick={voltar}>
-      Voltar
-    </Botao>
+    
   </>
 }
 
