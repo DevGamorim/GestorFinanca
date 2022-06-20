@@ -1,16 +1,8 @@
 .card-grupo {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 3rem;
-    margin: auto 0 0 auto;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    border: solid  #32D9BA;
-  }
-  
-  @media screen and (max-width: 560px) {
-    .card-login {
-      margin: auto;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  margin: auto 0 0 auto;
+  background-color: #f0f0f0;
+  height: min-content;
+}

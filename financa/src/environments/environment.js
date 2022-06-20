@@ -1,0 +1,1 @@
+export const baseUrl = 'https://jornada-postgresql.herokuapp.com';
