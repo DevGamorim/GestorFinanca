@@ -1,9 +1,6 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-
-import { Container, Row, Col } from 'react-bootstrap';
-
 import VisualizarGrupo from '../VisualizarGrupo/VisualizarGrupo';
+import './SelecionarGrupo.scss'
 
 function SelecionarGrupo(props) {
 
@@ -13,16 +10,10 @@ function SelecionarGrupo(props) {
     /** Mudar par anovo grupo */
   }
 
-  return <>
-  <Container>
-    <Row>      
-      <center><p>Seus Grupos</p></center>
-      <p className="link" onClick={() => {CriarNovoGrupo()}}>Criar novo grupo</p>
-      <p></p>
-    </Row>
+  return <div className='projetos'>
+    <p className="link novo-projeto" onClick={() => {CriarNovoGrupo()}}>Criar Novo Projeto</p>
     <VisualizarGrupo />
-  </Container>
-  </>
+  </div>
 };
   
 export default SelecionarGrupo;

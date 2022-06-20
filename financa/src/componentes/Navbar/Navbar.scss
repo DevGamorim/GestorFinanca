@@ -1,0 +1,81 @@
+* {
+  font-size: 20px;
+}
+
+/* Write your CSS here */
+.nav-bar-container-light {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  border-bottom-style: solid;
+  border-bottom-color: #dcdcdc;
+  border-bottom-width: 2px;
+  padding: 10px;
+  height: min-content;
+}
+
+.website-logo {
+  width: 35px;
+  height: 30px;
+}
+
+.middle-items {
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  justify-self: center;
+  padding: 0px;
+}
+
+.list-item {
+  font-size: 16px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.link-light {
+  color: #171f46;
+  text-decoration: none;
+}
+
+.theme-button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border-style: none;
+  outline: none;
+}
+
+.theme-img {
+  width: 40px;
+  height: 40px;
+}
+
+.nav-bar-container-dark {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  background-color: #333333;
+  height: 60px;
+}
+
+.link-dark {
+  color: white;
+  text-decoration: none;
+}
+
+.deslogar {
+  height: min-content;
+  width: min-content;
+  justify-self: center;
+}
