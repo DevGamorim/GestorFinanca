@@ -2,3 +2,16 @@
   width: 2px;
   height: 30px;
 }
+
+.botoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

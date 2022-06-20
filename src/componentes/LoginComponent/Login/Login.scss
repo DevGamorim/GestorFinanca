@@ -2,20 +2,6 @@
   box-sizing: border-box;
 }
 
-.card-login {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 400px;
-  height: 500px;
-  gap: 1rem;
-  padding: 3rem;
-  margin: auto 0 0 auto;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  border: solid  #32D9BA;
-}
-
 .field {
   width: 100%;
   border-radius: 4px;
@@ -47,16 +33,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .titulo {
   font-size: 30px;
   margin: 0;
-}
-
-@media screen and (max-width: 560px) {
-  .card-login {
-    margin: auto;
-  }
 }

@@ -11,3 +11,7 @@ const usuarioUrl = `${baseUrl}/usuario`
 export const autenticar = async (credenciais) => {
   return axios.post(`${usuarioUrl}/autenticar`, credenciais);
 }
+
+export const criarConta = async (dados) => {
+  return axios.post(usuarioUrl, dados);
+}

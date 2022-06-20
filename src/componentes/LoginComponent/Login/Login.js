@@ -51,12 +51,14 @@ function Login(props) {
         value={login.login}
         autoComplete='off'
         spellCheck='false'
+        size='small'
         onChange={changeValueHandler.bind(this, 'login')}>
       </TextField>
       <TextField
         className='field'
         type={'password'}
         label='PASSWORD'
+        size='small'
         value={login.senha}
         onChange={changeValueHandler.bind(this, 'senha')}>
       </TextField>
