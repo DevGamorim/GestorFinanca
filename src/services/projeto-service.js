@@ -11,3 +11,12 @@ const projetoUrl = `${baseUrl}/projeto`
 export const buscarProjetosPorUsuarioId = async (idUsuario) => {
   return axios.get(`${projetoUrl}/por-usuario/${idUsuario}`);
 }
+
+/**
+ * Cria um novo projeto à partir do objeto enviado.
+ * @param {*} projeto 
+ * @returns Projeto criado
+ */
+export const criarProjeto = async (projeto) => {
+  return axios.post(`${projetoUrl}`, projeto);
+}

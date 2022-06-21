@@ -5,79 +5,74 @@ import Botao from '../../utils/Botao/Botao';
 import { useState } from 'react';
 import { TextField } from '@mui/material';
 import { AiOutlineArrowRight } from 'react-icons/ai'
+import { useNavigate }  from 'react-router-dom';
+import { criarProjeto } from '../../../services/projeto-service';
 
-function CriarGrupo(props) {
-    const [email1, setEmail1, email2, setEmail2, email3, setEmail3, text, setText] = useState('');
+function CriarGrupo() {
+    const [projeto, setProjeto] = useState({titulo: '', saldo: 0, descricao: '', imagem: '', membros: []});
+
+    const navigate = useNavigate();
 
     function voltar() {
-        props.setTela('grupo');
+        navigate('../home')
     }
 
-    function changeValueHandler(event) {
-        setEmail1(event.target.value);
-        setEmail2(event.target.value);
-        setEmail3(event.target.value);
-        setText(event.target.value);
+    function cadastrar() {
+        const usuario = JSON.parse(localStorage.getItem('logged'));
+        projeto.membros.push(usuario);
+        criarProjeto(projeto).then(() => {
+            navigate('../home')
+        });
     }
 
-    return <>
-        <div className='card-criar-grupo'>
-            <div className='titulo'>
+    function changeValueHandler(form, event) {
+        setProjeto({ ...projeto, [form]: event.target.value})
+    }
+
+    return <div className='card-grupo'>
+        <div className='tela'>
+            <div className='card-criar-grupo'>
                 <TextField
                     type={'text'}
-                    label='Titulo'
-                    value={text}
+                    label='TÍTULO'
+                    value={projeto.titulo}
                     autoComplete='off'
                     spellCheck='false'
-                    onChange={changeValueHandler}
+                    onChange={changeValueHandler.bind(this, 'titulo')}
+                    className='titulo-text'
+                    size='small'>
+                </TextField>
+                <TextField
+                    type={'text'}
+                    label='DESCRIÇÃO'
+                    value={projeto.descricao}
+                    autoComplete='off'
+                    spellCheck='false'
+                    onChange={changeValueHandler.bind(this, 'descricao')}
+                    className='titulo-text'
+                    size='small'>
+                </TextField>
+                <TextField
+                    type={'text'}
+                    label='IMAGEM'
+                    value={projeto.imagem}
+                    autoComplete='off'
+                    spellCheck='false'
+                    onChange={changeValueHandler.bind(this, 'imagem')}
                     className='titulo-text'
                     size='small'>
                 </TextField>
             </div>
-            <div className='e-mail'>
-                <TextField
-                    type={'text'}
-                    label='E-MAIL 1'
-                    value={email1}
-                    autoComplete='off'
-                    spellCheck='false'
-                    onChange={changeValueHandler}
-                    className='email-text'
-                    size='small'>
-                </TextField>
-            </div>
-            <div className='e-mail'>
-                <TextField
-                    type={'text'}
-                    label='E-MAIL 2'
-                    value={email2}
-                    autoComplete='off'
-                    spellCheck='false'
-                    onChange={changeValueHandler}
-                    className='email-text'
-                    size='small'>
-                </TextField>
-            </div>
-            <div className='e-mail'>
-                <TextField
-                    type={'text'}
-                    label='E-MAIL 3'
-                    value={email3}
-                    autoComplete='off'
-                    spellCheck='false'
-                    onChange={changeValueHandler}
-                    className='email-text'
-                    size='small'>
-                </TextField>
-            </div>
-            <Botao size='small' className='botao-icone' onClick={voltar}>
+            <div className='botoes'>
+            <Botao size='small' className='botao' onClick={voltar}>
+                Voltar
+            </Botao>
+            <Botao size='small' className='botao' onClick={cadastrar}>
                 <AiOutlineArrowRight></AiOutlineArrowRight>
             </Botao>
+            </div>
         </div>
-        <Botao size='small' className='botao-voltar' onClick={voltar}>
-            Voltar
-        </Botao>
-    </>
+    </div>
 }
 
 export default CriarGrupo;

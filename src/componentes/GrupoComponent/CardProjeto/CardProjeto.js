@@ -9,7 +9,7 @@ import Botao from '../../utils/Botao/Botao';
 
 function CardProjeto(props) {
   return <>
-    <Card sx={{ maxWidth: 300 }}>
+    <Card sx={{ maxWidth: 300, minWidth: 300, maxHeight: 350, minHeight: 350 }}>
       <CardMedia
         component="img"
         height="140"

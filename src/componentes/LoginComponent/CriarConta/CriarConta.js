@@ -1,22 +1,25 @@
 /* eslint-disable no-restricted-globals */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './CriarConta.scss';
 import Botao from '../../utils/Botao/Botao';
 import { criarConta } from '../../../services/usuario-service';
-import { Snackbar, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
+import AuthContext from '../../../context/AuthContext';
 
 function CriarConta(props) {
   const [login, setLogin] = useState({login: '', email: '', cpf: '', nome: '', senha: ''});
-  const [open, setOpen] = useState(false)
+
+  const context = useContext(AuthContext);
+
   function changeValueHandler (form, event) {
     setLogin({ ...login, [form]: event.target.value})
   }
 
   async function cadastrarHandler() {
     criarConta(login)
-    .then((value) => {
-      console.log(value.data);
-      setOpen(true);
+    .then(() => {
+      context.setToast({open: true, mensagem: 'Cadastrado com sucesso!', sucesso: true});
+      props.setTela('login');
     })
     .catch((error) => {
       console.error(error);
@@ -38,7 +41,7 @@ function CriarConta(props) {
         value={login.nome}
         autoComplete='off'
         spellCheck='false'
-        required='true'
+        required={true}
         onChange={changeValueHandler.bind(this, 'nome')}>
       </TextField>
       <TextField
@@ -49,7 +52,7 @@ function CriarConta(props) {
         value={login.cpf}
         autoComplete='off'
         spellCheck='false'
-        required='true'
+        required={true}
         onChange={changeValueHandler.bind(this, 'cpf')}>
       </TextField>
       <TextField
@@ -60,7 +63,7 @@ function CriarConta(props) {
         value={login.email}
         autoComplete='off'
         spellCheck='false'
-        required='true'
+        required={true}
         onChange={changeValueHandler.bind(this, 'email')}>
       </TextField>
       <TextField
@@ -71,7 +74,7 @@ function CriarConta(props) {
         value={login.login}
         autoComplete='off'
         spellCheck='false'
-        required='true'
+        required={true}
         onChange={changeValueHandler.bind(this, 'login')}>
       </TextField>
       <TextField
@@ -80,7 +83,7 @@ function CriarConta(props) {
         type={'password'}
         label='SENHA'
         value={login.senha}
-        required='true'
+        required={true}
         onChange={changeValueHandler.bind(this, 'senha')}>
       </TextField>
     </div>
@@ -92,13 +95,6 @@ function CriarConta(props) {
         Cadastrar
       </Botao>
     </div>
-    <Snackbar
-      // eslint-disable-next-line no-sequences
-      anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
-      open={open}
-      message="Cadastrado com sucesso!"
-      autoHideDuration={6000}
-    />
   </div>
 }
 export default CriarConta;
